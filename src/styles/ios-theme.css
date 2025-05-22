@@ -1,0 +1,102 @@
+/* iOS Design System */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* iOS System Colors */
+    --ios-blue: rgb(0, 122, 255);
+    --ios-green: rgb(52, 199, 89);
+    --ios-red: rgb(255, 59, 48);
+    --ios-gray: rgb(142, 142, 147);
+    --ios-gray2: rgb(174, 174, 178);
+    --ios-gray3: rgb(199, 199, 204);
+    --ios-gray4: rgb(209, 209, 214);
+    --ios-gray5: rgb(229, 229, 234);
+    --ios-gray6: rgb(242, 242, 247);
+    
+    /* Background Colors */
+    --ios-background: var(--ios-gray6);
+    --ios-grouped-background: var(--ios-gray6);
+    --ios-secondary-background: rgb(255, 255, 255);
+    
+    /* Text Colors */
+    --ios-label: rgb(0, 0, 0);
+    --ios-secondary-label: rgb(60, 60, 67);
+    --ios-tertiary-label: rgb(60, 60, 67, 0.3);
+    --ios-quaternary-label: rgb(60, 60, 67, 0.18);
+  }
+
+  body {
+    @apply antialiased bg-ios-background font-sf-pro text-base text-ios-label;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .ios-card {
+    @apply bg-ios-secondary-background rounded-2xl shadow-sm;
+  }
+
+  .ios-button {
+    @apply rounded-full px-6 py-3 font-semibold text-center transition-all
+           active:opacity-70 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .ios-button-primary {
+    @apply ios-button bg-ios-blue text-white;
+  }
+
+  .ios-button-secondary {
+    @apply ios-button bg-ios-gray6 text-ios-blue;
+  }
+
+  .ios-input {
+    @apply w-full px-4 py-3 rounded-2xl bg-ios-secondary-background 
+           border border-ios-gray4 text-ios-label placeholder:text-ios-tertiary-label
+           focus:outline-none focus:border-ios-blue focus:ring-1 focus:ring-ios-blue;
+  }
+
+  .ios-nav {
+    @apply fixed top-0 left-0 right-0 h-12 bg-ios-secondary-background/90
+           backdrop-blur-xl z-50 border-b border-ios-gray4;
+  }
+
+  .ios-safe-area {
+    @apply pt-[env(safe-area-inset-top)]
+           pb-[env(safe-area-inset-bottom)]
+           pl-[env(safe-area-inset-left)]
+           pr-[env(safe-area-inset-right)];
+  }
+
+  .ios-list {
+    @apply rounded-2xl bg-ios-secondary-background overflow-hidden;
+  }
+
+  .ios-list-item {
+    @apply flex items-center px-4 py-3 border-b border-ios-gray5 last:border-b-0;
+  }
+
+  .ios-sheet {
+    @apply fixed bottom-0 left-0 right-0 bg-ios-secondary-background rounded-t-2xl
+           shadow-lg transform transition-transform duration-300 ease-out;
+  }
+
+  .ios-sheet-backdrop {
+    @apply fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300;
+  }
+}
+
+@layer utilities {
+  .text-ios-title1 { @apply text-[34px] leading-[41px] font-bold tracking-tight; }
+  .text-ios-title2 { @apply text-[28px] leading-[34px] font-bold tracking-tight; }
+  .text-ios-title3 { @apply text-[22px] leading-[28px] font-semibold; }
+  .text-ios-headline { @apply text-[17px] leading-[22px] font-semibold; }
+  .text-ios-body { @apply text-[17px] leading-[22px]; }
+  .text-ios-callout { @apply text-[16px] leading-[21px]; }
+  .text-ios-subhead { @apply text-[15px] leading-[20px]; }
+  .text-ios-footnote { @apply text-[13px] leading-[18px]; }
+  .text-ios-caption1 { @apply text-[12px] leading-[16px]; }
+  .text-ios-caption2 { @apply text-[11px] leading-[13px]; }
+}
